@@ -236,9 +236,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/dev/topics/auth/customizing/
 
 AUTH_USER_MODEL = 'shared_foundation.SharedUser'
+
 AUTHENTICATION_BACKENDS = (
     'comicscantina.backends.ComicsCantinaRemoteIAMAuthBackend',
-    # 'django.contrib.auth.backends.ModelBackend',
 )
 
 

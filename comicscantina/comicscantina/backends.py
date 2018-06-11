@@ -33,7 +33,7 @@ class ComicsCantinaRemoteIAMAuthBackend(ModelBackend):
     def authenticate(self, username=None, password=None, **kwargs):
         token = self.get_token()
 
-        protected_url = settings.COMICSCANTINA_IAM_BASE_URL + "/api/user/1/"
+        protected_url = settings.COMICSCANTINA_IAM_BASE_URL + "/api/user/1/" #TODO: CREATE LOGIN API ENDPOINT.
 
         try:
             # Begin a OAuth2 session.
@@ -60,45 +60,9 @@ class ComicsCantinaRemoteIAMAuthBackend(ModelBackend):
             # our newly refreshed token.
             r = client.get(protected_url)
 
-        #TODO: IMPLEMENT.
         print(r.content)
 
-
-
-
-        # try:
-
-        # except Exception as e:
-        #     print(e)
-        #     return None
-        #
-        #
-        # print(token)
-        # print(token['access_token'])
-        # # print(token.expires_in)
-        # # print(token.token_type)
-        # # print(token.scope)
-        # # print(token.refresh_token)
-        # # print(token.expires_at)
-
-        """
-        {
-        'access_token': 'RtutSdMJFxEKW07r8FFbzAYxqOQrqZ',
-        'expires_in': 36000,
-        'token_type': 'Bearer',
-        'scope': ['read', 'write'],
-        'refresh_token': '3Eo2tgWGbJYpV8sdg0waoXvGZaevqy',
-        'expires_at': 1528625982.6828082}
-        """
-
-        # client = OAuth2Session(
-        #     client_id,
-        #     token=token['access_token'],
-        #     auto_refresh_url=settings.COMICSCANTINA_IAM_REFRESH_TOKEN_URL,
-        #     auto_refresh_kwargs=None,
-        #     token_updater=token_saver
-        # )
-        # r = client.get(protected_url)
+        #TODO: IMPLEMENT DOWNLOADING USER IAM PROFILE TO OUR SERVER.
 
         return None
 
